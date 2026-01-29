@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impact Reports</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="container" style="padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <h1 style="margin: 0; font-size: 1.5rem;">Participant Tracker</h1>
+    <a href="index.html" class="btn btn-secondary" style="margin: 0;">Back to Dashboard</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h2>Program Impact Report</h2>
+
+  <div class="list-group mb-4">
+    <div class="list-group-item">
+      <strong>Total Participants:</strong>
+      <span style="float: right; font-size: 1.3rem; font-weight: 700; color: var(--primary-green);" id="totalParticipants">0</span>
+    </div>
+    <div class="list-group-item">
+      <strong>Participants At Risk:</strong>
+      <span style="float: right; font-size: 1.3rem; font-weight: 700; color: var(--muted-rose);" id="atRisk">0</span>
+    </div>
+    <div class="list-group-item">
+      <strong>Total Work Hours:</strong>
+      <span style="float: right; font-size: 1.3rem; font-weight: 700; color: var(--primary-green);" id="totalHours">0</span>
+    </div>
+    <div class="list-group-item">
+      <strong>Total E-Waste Recycled (lbs):</strong>
+      <span style="float: right; font-size: 1.3rem; font-weight: 700; color: var(--primary-green);" id="totalRecycled">0</span>
+    </div>
+    <div class="list-group-item">
+      <strong>Estimated CO₂ Avoided (lbs):</strong>
+      <span style="float: right; font-size: 1.3rem; font-weight: 700; color: var(--primary-green);" id="co2Avoided">0</span>
+    </div>
+  </div>
+
+  <div class="button-group">
+    <a href="index.html" class="btn btn-secondary">Back to Dashboard</a>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

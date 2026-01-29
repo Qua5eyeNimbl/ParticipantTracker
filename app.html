@@ -1,0 +1,86 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import {
+  getFirestore, collection, addDoc, getDocs, doc, getDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+function status(att) {
+  if (att < 70) return "🔴 At Risk";
+  if (att >= 90) return "🔵 Ready";
+  return "🟢 On Track";
+}
+
+// DASHBOARD
+const table = document.getElementById("table");
+if (table) {
+  getDocs(collection(db, "participants")).then(snapshot => {
+    snapshot.forEach(docu => {
+      const p = docu.data();
+      table.innerHTML += `
+        <tr>
+          <td>${p.name}</td>
+          <td>${p.program}</td>
+          <td>${p.phase}</td>
+          <td>${p.attendance}%</td>
+          <td>${status(p.attendance)}</td>
+          <td><a href="participant.html?id=${docu.id}">View</a></td>
+        </tr>
+      `;
+    });
+  });
+}
+
+// ADD PARTICIPANT
+window.addParticipant = async function () {
+  await addDoc(collection(db, "participants"), {
+    name: name.value,
+    program: program.value,
+    phase: phase.value,
+    attendance: Number(attendance.value),
+    hours: 0,
+    materials: 0,
+    notes: ""
+  });
+  window.location = "index.html";
+};
+
+// PARTICIPANT PAGE
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if (id) {
+  getDoc(doc(db, "participants", id)).then(d => {
+    const p = d.data();
+    name.innerText = p.name;
+    program.innerText = p.program;
+    phase.innerText = p.phase;
+    attendance.innerText = p.attendance;
+    hours.innerText = p.hours;
+    materials.innerText = p.materials;
+    notes.value = p.notes;
+  });
+}
+
+// REPORTS
+const report = document.getElementById("report");
+if (report) {
+  getDocs(collection(db, "participants")).then(snap => {
+    let totalHours = 0, totalMat = 0;
+    snap.forEach(d => {
+      totalHours += d.data().hours;
+      totalMat += d.data().materials;
+    });
+    report.innerText =
+      `Total Hours Worked: ${totalHours}
+       Total E-Waste Recycled: ${totalMat} lbs
+       Estimated CO₂ Avoided: ${totalMat * 1.5} lbs`;
+  });
+}

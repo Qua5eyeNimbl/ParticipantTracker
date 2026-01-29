@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Participant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="container" style="padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <h1 style="margin: 0; font-size: 1.5rem;">Participant Tracker</h1>
+    <a href="reports.html" class="btn btn-info" style="margin: 0;">View Reports</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="dashboard-header">
+    <h2>Add Participant</h2>
+  </div>
+
+  <div class="profile-section" style="max-width: 600px;">
+    <div class="mb-3">
+      <label>Full Name</label>
+      <input id="name" class="form-control" placeholder="Enter participant name">
+    </div>
+
+    <div class="mb-3">
+      <label>Program</label>
+      <input id="program" class="form-control" placeholder="Enter program name">
+    </div>
+
+    <div class="mb-3">
+      <label>Phase</label>
+      <input id="phase" type="number" class="form-control" placeholder="e.g., 1, 2, 3">
+    </div>
+
+    <div class="mb-3">
+      <label>Attendance (%)</label>
+      <input id="attendance" type="number" class="form-control" placeholder="0-100" min="0" max="100">
+    </div>
+
+    <div class="mb-3">
+      <label>Milestones</label>
+      <input id="milestones" class="form-control" placeholder="Completed milestones">
+    </div>
+
+    <div class="mb-3">
+      <label>Certifications</label>
+      <input id="certifications" class="form-control" placeholder="Earned certifications">
+    </div>
+
+    <div class="mb-3">
+      <label>Work Hours</label>
+      <input id="hours" type="number" class="form-control" placeholder="Total hours worked" min="0">
+    </div>
+
+    <div class="mb-3">
+      <label>Materials Recycled (lbs)</label>
+      <input id="recycled" type="number" class="form-control" placeholder="Amount in pounds" min="0">
+    </div>
+
+    <div class="mb-3">
+      <label>Case Notes</label>
+      <textarea id="notes" class="form-control" rows="4" placeholder="Additional notes or observations"></textarea>
+    </div>
+
+    <div class="button-group">
+      <button type="button" class="btn btn-success" onclick="saveParticipant()">
+        Save Participant
+      </button>
+      <a href="index.html" class="btn btn-secondary">Cancel</a>
+    </div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

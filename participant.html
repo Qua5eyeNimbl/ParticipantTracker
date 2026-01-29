@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participant Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="container" style="padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <h1 style="margin: 0; font-size: 1.5rem;">Participant Tracker</h1>
+    <a href="reports.html" class="btn btn-info" style="margin: 0;">View Reports</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h2 id="name"></h2>
+
+  <div class="profile-section">
+    <h4>Basic Information</h4>
+    <p>
+      <strong>Program:</strong>
+      <span id="program"></span>
+    </p>
+    <p>
+      <strong>Phase:</strong>
+      <span id="phase"></span>
+    </p>
+    <p>
+      <strong>Attendance:</strong>
+      <span id="attendance"></span>%
+    </p>
+    <p>
+      <strong>Status:</strong>
+      <span id="status"></span>
+    </p>
+  </div>
+
+  <div class="profile-section">
+    <h4>Progress Tracking</h4>
+    <p>
+      <strong>Milestones:</strong>
+      <span id="milestones"></span>
+    </p>
+    <p>
+      <strong>Certifications:</strong>
+      <span id="certifications"></span>
+    </p>
+  </div>
+
+  <div class="profile-section">
+    <h4>Case Notes</h4>
+    <p id="caseNotes"></p>
+  </div>
+
+  <div class="profile-section">
+    <h4>Recycling Work</h4>
+    <p>
+      <strong>Work Hours:</strong>
+      <span id="workHours"></span>
+    </p>
+    <p>
+      <strong>Materials Recycled:</strong>
+      <span id="materialsRecycled"></span> lbs
+    </p>
+  </div>
+
+  <div class="button-group mt-3">
+    <a href="index.html" class="btn btn-secondary">Back to Dashboard</a>
+    <button class="btn btn-danger" onclick="removeParticipantFromProfile()">Remove Participant</button>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
